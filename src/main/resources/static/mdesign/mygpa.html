@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!--[if IE 9 ]><html lang="en" class="ie9"><![endif]-->
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SUSTech GPA</title>
+
+		<link rel="stylesheet" href="course.css">
+		<!-- Vendors -->
+
+		<!-- Material design colors -->
+		<link href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+
+		<!-- CSS animations -->
+		<link rel="stylesheet" href="vendors/bower_components/animate.css/animate.min.css">
+
+		<!-- Select 2 - Custom Selects -->
+		<link rel="stylesheet" href="vendors/bower_components/sweetalert2/dist/sweetalert2.min.css">
+
+		<!-- SweetAlert2 - Custom Alerts -->
+		<link rel="stylesheet" href="vendors/bower_components/select2/dist/css/select2.min.css">
+
+		<!-- Site -->
+		<link rel="stylesheet" href="css/app_1.min.css">
+		<link rel="stylesheet" href="css/app_2.min.css">
+
+		<!-- Page Loader JS -->
+		<script src="seeugpacore.js"></script>
+		<script src="js/page-loader.min.js" async></script>
+	</head>
+
+	<body>
+		<!-- Start page loader -->
+		<div id="page-loader">
+			<div class="page-loader__spinner"></div>
+		</div>
+		<!-- End page loader -->
+
+		<header id="header-alt">
+			<!--<a href="" class="header-alt__trigger hidden-lg" data-rmd-action="block-open" data-rmd-target="#main__sidebar">
+				<i class="zmdi zmdi-menu"></i>
+			</a>-->
+
+			<a href="#" class="header-alt__logo">GPA 查询系统</a>
+
+			<ul class="header-alt__menu">
+				<li>
+					<a href="/oldlogin.html">
+						<i class="zmdi zmdi-mail-reply"></i>
+					</a>
+				</li>
+				<li>
+					<a href="" data-toggle="modal" data-target="#seeuModal">
+						<i class="zmdi zmdi-email"></i>
+					</a>
+				</li>
+				<li>
+					<a href="/"><i class="zmdi zmdi-home"></i></a>
+				</li>
+			</ul>
+
+			<div class="header-alt__search-wrap">
+				<form class="header-alt__search">
+					<input type="text" placeholder="Search...">
+
+					<i class="zmdi zmdi-long-arrow-left" data-rmd-action="block-close" data-rmd-target=".header-alt__search-wrap"></i>
+				</form>
+			</div>
+		</header>
+
+		<main id="main">
+
+			<section id="main__content">
+				<div class="action-header-alt">
+					<div class="action-header__item" style="height: 2em;margin-top: 10px;margin-left: 20px;">
+						UNOFFICIAL TRANSCRIPT
+					</div>
+
+				</div>
+
+				<div class="main__container">
+					<header class="main__title animated slideInLeft">
+						<h2 id="nickname">加载失败，请确认登录信息是否正确</h2>
+						<small id="sid">若长时间加载不出，请点击右上方邮件标识联系我们</small>
+					</header>
+					<div id="course__container">
+						<script>
+//							ss();
+						</script>
+					</div>
+					<header class="main__title">
+						<!--<h2>学生历年成绩</h2>-->
+						<small>*备注 | 成绩信息包含：学分／课时／课程性质／课程属性／考核方式／分数／评价 （ 已按顺序排列显示 ）</small>
+					</header>
+					<div class="row">
+						<div class="list-group list-group--block tasks-lists">
+							<div class="list-group__header text-left">
+								总计
+							</div>
+							<div class="list-group__header text-left" style="border-bottom:none;">
+								<label style="width:200px">已修读学分：</label>
+								<seeuvalue id="xff_total_static">0</seeuvalue>
+							</div>
+							<div class="list-group__header text-left" style="border-bottom:none;">
+								<label style="width:200px">已加入计算的学分：</label>
+								<seeuvalue id="xff_total">0</seeuvalue>
+							</div>
+							<div class="list-group__header text-left" style="border-bottom:none;">
+								<label style="width:200px">GPA：</label>
+								<seeuvalue id="gpa_total">0.00</seeuvalue>
+							</div>
+
+						</div>
+
+						<!--<div class="load-more">
+								<a href=""><i class="zmdi zmdi-refresh-alt"></i> Load more tasks</a>
+							</div>-->
+					</div>
+					
+				</div>
+			</section>
+
+			<footer id="footer-alt" style="margin-bottom: 20px;">
+				Copyright © 2017 南方科技大学教学工作部
+
+				<small style="display: block;margin-top: 10px;font-style: oblique;">Powered by &nbsp;<a href="http://seeu.studio"style="font-style: initial;">SeeU Studio</a></small>
+
+			</footer>
+		</main>
+		<!-- SEEU MODAL -->
+		<div class="modal fade" id="seeuModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">
+				                    关于我们
+				                    <small>西柚工作室</small>
+				                </h4>
+					</div>
+					<div class="modal-body">
+						该 GPA 查询系统数据均来自于教务系统，若有课程重复、缺失、错误，请联系校方核对自己课程信息。
+						</br>
+						若出现任何系统故障，如：页面错误、GPA 计算不准确、分数与教务系统不一致等，均可联系
+						<a href="http://seeu.studio">西柚工作室（http://seeu.studio）</a>进行反馈。
+						</br>邮箱：seeucoco@163.com 主题请备注【南科大 GPA 查询系统】
+						</br>
+						</br>感谢您的使用和关注！
+						</br>
+						<div style="float: right;">
+							</br>西柚敬上</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-link" data-dismiss="modal">确认</button>
+						<!--<button type="button" class="btn btn-link">Save</button>-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Javascript -->
+
+		<!-- jQuery -->
+		<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+		<!-- Bootstrap -->
+		<script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+		<!-- Waves button ripple effects -->
+		<script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
+
+		<!-- Select 2 - Custom Selects -->
+		<script src="vendors/bower_components/select2/dist/js/select2.full.min.js"></script>
+
+		<!-- SweetAlert2 - Custom Alerts -->
+		<script src="vendors/bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+
+		<!-- IE9 Placeholder -->
+		<!--[if IE 9 ]>
+        <script src="../vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+
+		<!-- Site functions and actions -->
+		<script src="js/app.min.js"></script>
+
+		<!-- Demo only -->
+		<script src="js/demo/demo.js"></script>
+	</body>
+
+</html>

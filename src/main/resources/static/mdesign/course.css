@@ -1,0 +1,41 @@
+.listdetail {
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	list-style-type: none;
+}
+
+.listdetail item {
+	float: left;
+	padding-right: 4.3em;
+}
+
+.listdetail l {
+	display: none;
+}
+
+.list-group {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+@media (max-width:700px) {
+	.listdetail item {
+		float: initial;
+		width:100%;
+		display: inline-block;
+	}
+	.listdetail l {
+		display: inline-block;
+		width: 100px;
+	}
+	.list-group {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	
+	.totalgpa{
+		float: left;
+		
+	}
+}
