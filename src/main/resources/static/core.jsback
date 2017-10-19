@@ -1,0 +1,210 @@
+<!--<div style="font-size: 10px;color: gray;">-->
+					<!--<div>这个系统没咋测试过，出问题了我不负责啊。没有进行密码验证，随便输入都能登录，如果密码错误只会获取不到成绩信息而已</div>-->
+					<!--<div>你们每次查成绩后台都会解析半天的 CAS 验证（生气😠真麻烦），所以花的时间可能会比较长，没事可以去图书馆写会作业消磨下时间再回来看看</div>-->
+					<!--<div>还有一事不知当讲不当讲：-->
+						<!--<a href="http://seeu.studio"> seeu.studio</a> 因为西柚工作室的原因只在寒假开放给大家查询，开学后会关闭该功能，-->
+						<!--<a href="http://ssc.sustc.edu.cn">校园内网 ssc.sustc.edu.cn</a> 正常情况会长期开放</div>-->
+					<!--<div>Bug 反馈 QQ 群： <a href="https://jq.qq.com/?k=443xaaB&amp;_wv=1027">点击链接加入群【SUST学生服务需求建设】541207070 </a> </div>-->
+				<!--</div>-->
+
+startwork();
+function startwork() {
+    var name = getCookie("username");
+    var pass = getCookie("password");
+    $.ajax({
+        url: '/mygpa', // 跳转到 action
+        data: {
+            username: name,
+            password: pass,
+        },
+        type: 'post',
+        dataType: 'json',
+        success: function (data) {
+            if (data.status == 1000) {
+                afterpost(data);
+            } else {
+                alert("请确认帐号密码再试");
+            }
+        },
+        error: function () {
+            alert("请确认帐号密码再重新尝试");
+        }
+    });
+
+//	var datas = "{ \"data\": {\"data\": [[\"CH101\",\"化学原理\",\"4\",\"通识必修课\",\"必修\",\"97\",\"&nbsp;\"]]}}";
+//	var json = JSON.parse(datas);
+//	loadscore(json.data);
+//	calTotalScore();
+}
+function afterpost(datas) {
+    // var json = JSON.parse(datas);
+    // alert(datas);
+    var json = (datas);
+
+    // 去掉 loading 进度条
+    var loading = document.getElementById("loading");
+    loading.innerHTML = "";
+    loadscore(json.data);
+    calTotalScore();
+}
+
+
+function setCookie(c_name, value, expiredays) {
+    var exdate = new Date()
+    exdate.setDate(exdate.getDate() + expiredays)
+    document.cookie = c_name + "=" + escape(value) +
+        ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
+}
+
+function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=")
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1
+            c_end = document.cookie.indexOf(";", c_start)
+            if (c_end == -1) c_end = document.cookie.length
+            return unescape(document.cookie.substring(c_start, c_end))
+        }
+    }
+    return ""
+}
+
+function loadscore(data) {
+    var tbody = document.getElementById("seeu");
+    // title  data.title
+    var titles = "[\"课程编号\",\"课程名称\",\"学分\",\"课程类别\",\"课程性质\",\"总成绩\",\"评价\"]";
+    titles = JSON.parse(titles);
+    var tr = document.createElement("tr");
+    var content = "<td></td>"; // 第一个为空位
+    for (var j = 0; j < 7; j++) {
+        content += "<td>" + titles[j] + "</td>";
+    }
+    tr.innerHTML = content;
+    tbody.appendChild(tr);
+    // body  data.data
+    var lines = data.data;
+    for (var i = 0; i < lines.length; i++) {
+        var tr = document.createElement("tr");
+        tr.setAttribute("id", "line" + i);
+        var content = "" + makecolor(i); // color
+        content += "<td>" + lines[i][0] + "</td>";
+        content += "<td>" + lines[i][1] + "</td>";
+        content += "<td id=\"xff" + i + "\">" + lines[i][2] + "</td>"; // 学分
+        content += "<td>" + lines[i][3] + "</td>";
+        content += "<td>" + lines[i][4] + "</td>";
+        content += "<td id=\"cjj" + i + "\">" + lines[i][5] + "</td>"; //成绩
+        content += "<td>" + calGPA(lines[i][5]) + "</td>"; //GPA
+
+        tr.innerHTML = content;
+        //				var tr = "<tr>" + content + "</tr>";
+        tbody.appendChild(tr);
+    }
+    // 记录总共的行数
+    var hiddenvv = document.getElementById("totallines");
+    hiddenvv.value = lines.length;
+}
+
+function makecolor(which) {
+    // 根据circle判断是否激活
+    var color = randomColor();
+    return "<td><div class=\"circle " + color + "\" id=\"circle" + which + "\" onclick=\"clickCircle(" + which + ");\"></div></td>";
+}
+
+function randomColor() {
+    var rdom = Math.floor(5 * Math.random());
+    switch (rdom) {
+        case 0:
+            return "orange-bg";
+        case 1:
+            return "yellow-bg";
+        case 2:
+            return "blue-bg";
+        case 3:
+            return "pink-bg";
+        case 4:
+            return "green-bg";
+        default:
+            return "pink-bg";
+    }
+}
+
+function calGPA(score) {
+    //				var temp = score;
+    //				try {
+    score = parseFloat(score);
+    //					if(!score < 200) {
+    //						return temp;
+    //					}
+    //				} catch(err) {
+    //					return temp;
+    //				}
+    if (score >= 97) return "A+";
+    if (score >= 93) return "A";
+    if (score >= 90) return "A-";
+    if (score >= 87) return "B+";
+    if (score >= 83) return "B";
+    if (score >= 80) return "B-";
+    if (score >= 77) return "C+";
+    if (score >= 73) return "C";
+    if (score >= 70) return "C-";
+    if (score >= 67) return "D+";
+    if (score >= 63) return "D";
+    if (score >= 60) return "D-";
+    if (score >= 0) return "F";
+    else return "";
+}
+
+// listener:
+function clickCircle(circleid) {
+    var circle = document.getElementById("circle" + circleid);
+    var lineid = "line" + circleid;
+    var line = document.getElementById(lineid);
+    if (circle.className.toString().indexOf("white-bg") == -1) {
+        // 如果打开
+        circle.className = "circle white-bg";
+        calTotalScore();
+        //					alert(circle.className.toString());
+    } else {
+        // 如果已经被关了
+        circle.className = "circle " + randomColor();
+        calTotalScore();
+    }
+}
+
+function calTotalScore() {
+    var tbody = document.getElementById("seeu");
+    var totalnum = document.getElementById("totallines").value;
+    var sumxf = 0;
+    var sumscore = 0;
+    for (var i = 0; i < totalnum; i++) {
+        // 判断是否选中
+        var circle = document.getElementById("circle" + i);
+        if (circle.className.toString().indexOf("white-bg") == -1) {
+            var xff = document.getElementById("xff" + i);
+            var cjj = document.getElementById("cjj" + i);
+            if (isNum(cjj.innerHTML)) {
+                var xf = parseFloat(xff.innerHTML);
+                var cj = parseFloat(cjj.innerHTML);
+                // alert(typeof cj);
+                sumxf += xf;
+                sumscore += xf * cj;
+            }
+        }
+    }
+    if (sumxf != 0) {
+        var abcdiv = document.getElementById("finalabc");
+        var scorediv = document.getElementById("finalscore");
+        var gpadiv = document.getElementById("finalgpa");
+        var finalscore = parseFloat(sumscore) / parseFloat(sumxf);
+        abcdiv.innerHTML = calGPA(finalscore);
+        scorediv.innerHTML = finalscore.toFixed(2);
+        var standway = (finalscore * 4 / 100.00).toFixed(2);
+        gpadiv.innerHTML = standway;
+    }
+}
+
+function isNum(str) {
+    if (parseFloat(str) == "" + str) {
+        return true;
+    } else return false;
+}

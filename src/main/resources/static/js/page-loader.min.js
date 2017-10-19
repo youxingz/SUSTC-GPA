@@ -1,0 +1,1 @@
+"use strict";window.onload=function(){function fade(element){var op=1,timer=setInterval(function(){.1>=op&&(clearInterval(timer),element.style.display="none"),element.style.opacity=op,element.style.filter="alpha(opacity="+100*op+")",op-=.1*op},10)}setTimeout(function(){fade(document.getElementById("page-loader"))},200)};

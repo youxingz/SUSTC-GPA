@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>SUSTech</title>
+		<meta name="description" content="" />
+		<meta name="author" content="templatemo" />
+
+		<!--<link href='http://fonts.useso.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>-->
+		<link href="css/font-awesome.min.css" rel="stylesheet" />
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="css/templatemo-style.css" rel="stylesheet" />
+		<link href="css/templatemo-style2.css" rel="stylesheet" />
+
+		<link href="css/seeu.css" rel="stylesheet" />
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	</head>
+
+	<body>
+		<!-- Left column -->
+		<div class="templatemo-flex-row" style="min-width: 650px;">
+			<!-- Main content -->
+			<div class="templatemo-content col-1 light-gray-bg">
+				<!--<script type="text/javascript">-->
+				<!--function logout() {-->
+				<!--window.location.href= "/";-->
+				<!--}-->
+				<!--</script>-->
+				<div class="templatemo-top-nav-container">
+					<div class="row" style="min-width: 1000px;">
+
+						<nav class="templatemo-top-nav col-lg-12" style="float: left;">
+							<div class="media-left padding-right-25" style="float: right;margin-left: 100px;">
+								<a href="http://sustc.edu.cn/">
+									<img class="media-object " style="height: 30px;width: 180px;" src="sustclogo_min.png" alt="Sunset" />
+								</a>
+							</div>
+							<ul class="text-uppercase" style="float: left;">
+								<li>
+									<a href="" class="active">UNOFFICIAL TRANSCRIPT</a>
+								</li>
+								<li>
+									<a href="/">Logout</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<div class="templatemo-content-container">
+					<div class="templatemo-flex-row flex-content-row">
+					</div>
+					<!-- Second row ends -->
+					<div class="templatemo-flex-row flex-content-row">
+						<div class="templatemo-content-widget col-2">
+							<div class="media margin-bottom-30 seeuheader">
+
+								<div class="media-body" style="padding-left: 20px;">
+									<h2 class="media-heading text-uppercase blue-text">学生历年成绩</h2>
+									<p style="font-size: 13px;color: gray;">UNOFFICIAL TRANSCRIPT</p>
+									<!--<p >顺便征集左侧图片</p>-->
+								</div>
+							</div>
+							<div id="seeu" class="seeutable table-responsive">
+								<div id="loading" class="seeubody">
+									<div style="margin:auto;margin-top: 100px;">
+										<div id="loader"></div>
+										<div class="loader-section section-left"></div>
+										<div class="loader-section section-right"></div>
+										<div style="margin: auto 0;text-align: center;margin-top: 40px;">Loading...</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="seeufooter" style="padding-top: 30px;padding-bottom: 60px;">
+								<h3 style="	padding-left: 20px;	font-weight: 200;margin-bottom: 20px;">历年总计</h3>
+								<div style="padding-top: 10px;">
+									<div>
+										<div class="circle pink-bg" style="float: left;margin-left: 20px;"></div>
+										<div style="float:left;padding-left: 20px;color: grey;font-size: 13px;">
+											点击任意一个颜色球即可选择是否将该门成绩算入总分
+										</div>
+									</div>
+									<div id="wuji_gpa_total" style="float: right;color: orange;font-size: 20px;margin-top: -5px;margin-right: 80px;">
+										0.00
+									</div>
+									<div style="float: right;margin-right: 10px;">等级制 GPA ：</div>
+									<!--<div id="baifen_gpa_total" style="float: right;color: cornflowerblue;font-size: 20px;margin-top: -5px;margin-right: 40px;" type="hidden">-->
+									<!--0.00-->
+									<!--</div>-->
+									<!--<div style="float: right;margin-right: 10px;">百分制：</div>-->
+								</div>
+							</div>
+							<!--<div style="padding-top: 20px;padding-bottom: 15px;">-->
+							<!--<div id="finalgpa" style="float: right;color: gray;font-size: 12px;margin-right: 80px;">0.00-->
+							<!--</div>-->
+							<!--<div style="float: right;margin-right: 10px;font-size: 12px;color: gray;">附上所谓的标准计算法得出的 GPA：-->
+							<!--</div>-->
+							<!--</div>-->
+							<input id="totallines" value="0" type="hidden" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div style="margin: auto 0;text-align: center;color: darkgrey;margin-top:8px;margin-bottom: 10px;">
+				<div>2017 © 南方科技大学教学工作部</div>
+				<div style="font-size: 10px;color: gray;">
+					<!--<div>五级制换算 GPA 的方式参见《学生手册 2015 版》P.16</div>-->
+					<!--<div>14 级及以前采用百分制，15 级及之后采用五级制。如果对于算法和系统有更多的疑问和想法的，-->
+					<!--<a href="https://jq.qq.com/?k=443xaaB&amp;_wv=1027">点击链接加入 QQ 群【SUST学生服务需求建设】541207070 </a>-->
+					<!--</div>-->
+					<!--<div>大家如果觉得算法有问题记得私戳我。在此附上黄人可学姐分享的-->
+					<!--<a href="https://share.weiyun.com/a85c43c16ea70c33988e193f9c95b3fc">Excel GPA 计算表</a>。顺带收一张图片放在那只猫的位置...-->
+					<!--</div>-->
+				</div>
+			</div>
+		</footer>
+		<!-- JS -->
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<!-- jQuery -->
+		<script type="text/javascript" src="js/templatemo-script.js"></script>
+		<!-- Templatemo Script -->
+		<script>
+			$(document).ready(function() {
+				// Content widget with background image
+				var imageUrl = $('img.content-bg-img').attr('src');
+				$('.templatemo-content-img-bg').css('background-image', 'url(' + imageUrl + ')');
+				$('img.content-bg-img').hide();
+			});
+		</script>
+		<script type="text/javascript" src="core.js"></script>
+	</body>
+
+</html>
