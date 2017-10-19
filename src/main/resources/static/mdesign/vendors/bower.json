@@ -1,0 +1,44 @@
+{
+  "name": "Roost Real Estate",
+  "authors": [
+    "Rushan <rushenn123@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "http://bootstrapsale.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6",
+    "material-design-color-palette": "^1.1.0",
+    "bower": "*",
+    "install": "^1.0.4",
+    "material-design-iconic-font": "^2.2.0",
+    "animate.css": "^3.5.1",
+    "select2": "^4.0.3",
+    "slick-carousel": "^1.6.0",
+    "nouislider": "^8.5.1",
+    "Waves": "fians/Waves#^0.7.5",
+    "lightgallery": "^1.2.19",
+    "autosize": "^3.0.15",
+    "rateYo": "prrashi/rateYo#^2.1.1",
+    "Flot": "flot#^0.8.3",
+    "flot-orderBars": "emmerich/flot-orderBars",
+    "flot.tooltip": "~0.8.5",
+    "jssocials": "^1.3.1",
+    "fullcalendar": "^2.9.0",
+    "Clamp.js": "josephschmitt/Clamp.js",
+    "trumbowyg": "Alex-D/Trumbowyg#^2.1.1",
+    "jquery-placeholder": "^2.3.1",
+    "sweetalert": "^1.1.3",
+    "sweetalert2": "^5.2.0"
+  }
+}
