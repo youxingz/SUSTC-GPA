@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--[if IE 9 ]>
+<html lang="en" class="ie9"><![endif]-->
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>SUSTech GPA</title>
+
+    <!-- Vendors -->
+
+    <!-- Material design colors -->
+    <link href="/mdesign/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css"
+          rel="stylesheet"/>
+
+    <!-- CSS animations -->
+    <link rel="stylesheet" href="/mdesign/vendors/bower_components/animate.css/animate.min.css"/>
+
+    <!-- Select2 - Custom Selects -->
+    <link rel="stylesheet" href="/mdesign/vendors/bower_components/select2/dist/css/select2.min.css"/>
+
+    <!-- NoUiSlider - Input Slider -->
+    <link rel="stylesheet" href="/mdesign/vendors/bower_components/nouislider/distribute/nouislider.min.css"/>
+    <link href="/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <!-- Site -->
+    <link rel="stylesheet" href="/mdesign/css/app_1.min.css"/>
+    <link rel="stylesheet" href="/mdesign/css/app_2.min.css"/>
+
+</head>
+
+<body>
+<script type="text/javascript">
+    function saveinfo() {
+        var name = document.getElementById("username");
+        var pass = document.getElementById("password");
+        setCookie("username", name.value, 1);
+        setCookie("password", pass.value, 1);
+        window.location.href = "/gpa";
+    }
+
+    function setCookie(c_name, value, expiredays) {
+        var exdate = new Date()
+        exdate.setDate(exdate.getDate() + expiredays)
+        document.cookie = c_name + "=" + escape(value) +
+                ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
+    }
+    function jumpNext(next) {
+        var nextInp = document.getElementById(next);
+        var event = arguments.callee.caller.arguments[0] || window.event;
+        if (event.keyCode == 13) {//判断是否按了回车，enter的keycode代码是13，想看其他代码请猛戳这里。
+            nextInp.focus();
+        }
+    }
+
+    function jumpPage() {
+        var event = arguments.callee.caller.arguments[0] || window.event;
+        if (event.keyCode == 13) {//判断是否按了回车，enter的keycode代码是13，想看其他代码请猛戳这里。
+            saveinfo();
+        }
+    }
+</script>
+<header id="header">
+    <div class="header__top">
+        <div class="container">
+            <ul class="top-nav">
+                <li class="top-nav__guest">
+                    <a href="http://sustc.edu.cn/">SUSTech 官网</a>
+                </li>
+
+                <li class="top-nav__guest">
+                    <a href="http://sustc.edu.cn/">教学工作部</a>
+                </li>
+
+                <li class="pull-right hidden-xs">
+                    <a href="Mailto:seeucoco@163.com"><span><i class="zmdi zmdi-email"></i> seeucoco@163.com</span></a>
+                </li>
+                <li class="pull-right hidden-xs">
+                    <a href="https://jq.qq.com/?k=4AfPdX2"><span><i class="fa fa-qq" aria-hidden="true"></i> Group 541207070</span></a>
+                </li>
+                <li class="pull-right hidden-xs"><span>BUG 反馈：</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="header__main">
+        <div class="container">
+            <a class="logo" href="">
+                <img src="/mdesign/sustclogo_circle.png" alt=""/>
+                <div class="logo__text">
+                    <span>GPA 查询系统</span>
+                    <span>SUSTech 教学工作部</span>
+                </div>
+            </a>
+
+            <div class="navigation-trigger visible-xs visible-sm" data-rmd-action="block-open"
+                 data-rmd-target=".navigation">
+                <i class="zmdi zmdi-menu"></i>
+            </div>
+
+            <ul class="navigation">
+                <li class="visible-xs visible-sm">
+                    <a class="navigation__close" data-rmd-action="navigation-close" href="">
+                        <i class="zmdi zmdi-long-arrow-right"></i></a>
+                </li>
+
+                <li class="navigation__dropdown">
+                    <a href="http://sustc.edu.cn">教学工作部</a>
+                </li>
+
+                <li class="navigation__dropdown">
+                    <a href="/oldlogin">旧版</a>
+                </li>
+
+                <li class="active">
+                    <a href="/">登录</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+
+        <div class="submit-property">
+            <div class="tab-content submit-property__content">
+                <div class="tab-panes">
+                    <div class="card">
+                        <div class="card__header">
+                            <h2>Login</h2>
+                            <!--<small>Use CAS account to login this website</small>-->
+                        </div>
+
+
+                        <form class="card__body">
+                            <div class="form-group form-group--float form-group--float-center">
+                                <input id="username" type="text" class="form-control text-center"
+                                       onkeydown="jumpNext('password');"/>
+                                <i class="form-group__bar"></i>
+                                <label>SUSTech ID</label>
+                            </div>
+
+                            <div class="form-group form-group--float form-group--float-center">
+                                <input id="password" type="password" class="form-control text-center"
+                                       onkeydown="jumpPage();"/>
+                                <i class="form-group__bar"></i>
+                                <label>Password</label>
+                            </div>
+
+                            <a href="" onclick="saveinfo();" data-toggle="tab"
+                               class="btn btn--circle btn-primary submit-property__button">
+                                <i class="zmdi zmdi-long-arrow-right"></i>
+                            </a>
+                        </form>
+                    </div>
+                </div>
+
+                <!--<div class="tab-pane fade" id="submit-property-5">-->
+                <!--<div class="card">-->
+                <!--<div class="submit-property__success">-->
+                <!--<i class="zmdi zmdi-check"></i>-->
+
+                <!--<h2>Successful!</h2>-->
+                <!--<p>Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta-->
+                <!--gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris-->
+                <!--condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Cras-->
+                <!--justo odio, dapibus ac facilisis in, egestas eget quam.</p>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+
+        <header class="section__title" style="margin-top: 80px;">
+            <!--<h2>Login</h2>-->
+            <small>Use CAS account to login this website</small>
+        </header>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="container hidden-xs">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="footer__block">
+                    <a class="logo clearfix" href="">
+                        <div class="logo__text">
+                            <span>GPA 查询系统</span>
+                            <span>SUSTech 教学工作部</span>
+                        </div>
+                    </a>
+
+                    <address class="m-t-20 m-b-20 f-14">
+                        版本 v 2.0.4
+                    </address>
+                    <div class="f-14">Powered by</div>
+                    <div class="f-14 m-t-5">西柚工作室 SeeU Studio</div>
+                    <div class="f-12 m-t-5">http://seeu.studio</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="footer__block footer__block--blog">
+                    <div class="footer__title">工作原理</div>
+
+                    <a href="">
+                        成绩来源
+                        <small style="white-space: normal;">
+                            数据均来自教务系统，若有数据不一致的情况请反馈给西柚工作室进行技术解决；若数据错误但与教务系统一致，请联系教学工作部查询更具体的信息
+                        </small>
+                    </a>
+                    <a href="">
+                        CAS 账号验证
+                        <small style="white-space: normal;">该系统采用模拟登录方式进行成绩查询，未完全接入 CAS
+                            系统进行验证。我们保证不存储任何私人信息，尽管可能会影响到查询速度，希望各位同学理解。
+                        </small>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="footer__block">
+                    <div class="footer__title">关于该系统</div>
+                    <div class="seeu">
+                        该系统由西柚工作室开发，方便南科大学生查询 GPA 信息之用。若在查询或者计算个人 GPA 时出现错误页面或异常，请及时联系我们进行解决。
+                        <br> </br>
+                        版权所有 © 南科大教学工作部
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer__bottom">
+        <div class="container">
+            <span class="footer__copyright">© 教学工作部</span>
+
+            <a>友情链接：</a>
+            <a href="http://sustc.edu.cn/">南科大官网</a>
+            <a href="http://seeu.studio">西柚工作室</a>
+            <span class="footer__copyright" style="font-style: oblique;display: inline-block;">Powered by &nbsp;<a
+                    href="http://seeu.studio" style="font-style: initial;">SeeU Studio</a></span>
+        </div>
+
+        <div class="footer__to-top" data-rmd-action="scroll-to" data-rmd-target="html">
+            <i class="zmdi zmdi-chevron-up"></i>
+        </div>
+    </div>
+</footer>
+
+<!-- Javascript -->
+<!-- 懒得删了_流量不大 -->
+
+<!-- jQuery -->
+<script src="/mdesign/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="/mdesign/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Waves button ripple effects -->
+<script src="/mdesign/vendors/bower_components/Waves/dist/waves.min.js"></script>
+
+<!-- Select 2 - Custom Selects -->
+<script src="/mdesign/vendors/bower_components/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Slick Carousel - Custom Alerts -->
+<script src="/mdesign/vendors/bower_components/slick-carousel/slick/slick.min.js"></script>
+
+<!-- NoUiSlider -->
+<script src="/mdesign/vendors/bower_components/nouislider/distribute/nouislider.min.js"></script>
+
+<!-- Autosize - Textarea -->
+<script src="/mdesign/vendors/bower_components/autosize/dist/autosize.min.js"></script>
+
+<!-- IE9 Placeholder -->
+<!--[if IE 9 ]>
+<script src="/mdesign/vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+<![endif]-->
+
+<!-- Site functions and actions -->
+<script src="/mdesign/js/app.min.js"></script>
+
+<!-- Demo only -->
+<script src="/mdesign/js/demo/demo.js"></script>
+</body>
+
+</html>
