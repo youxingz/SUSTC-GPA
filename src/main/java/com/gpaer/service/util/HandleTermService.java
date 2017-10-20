@@ -13,7 +13,10 @@ import java.util.List;
 
 /**
  * Created by admin on 2017/3/15.
+ * <p>
+ * 新版系统 v2.0 使用，可获取分学期查询结果
  */
+@Deprecated
 @Service
 public class HandleTermService {
     static final String url = "http://jwxt.sustc.edu.cn/jsxsd/kscj/cjcx_list";

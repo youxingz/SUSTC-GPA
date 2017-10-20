@@ -28,6 +28,7 @@ import java.util.Set;
  * Created by admin on 2017/3/15.
  */
 @Service
+@Deprecated
 public class ProcessJID {
 
     /**
@@ -37,6 +38,7 @@ public class ProcessJID {
      * @return
      * @throws IOException
      */
+    @Deprecated
     public String getJESSIONID(String username, String password) throws IOException {
         HashMap<String, String> params = new HashMap<>();
         String result = post1(null, null);

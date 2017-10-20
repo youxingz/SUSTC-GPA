@@ -1,6 +1,7 @@
-package com.gpaer.service.util;
+package com.gpaer.service.v3;
 
 import com.alibaba.fastjson.JSONObject;
+import com.gpaer.service.util.HttpUtil;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -15,15 +16,14 @@ import org.springframework.stereotype.Service;
  * 以及个人昵称
  */
 @Service
-@Deprecated
-public class HandleUserInfoService {
+public class ProcessHtml2JSONUserService {
     static final String url = "http://jwxt.sustc.edu.cn/jsxsd/xxwcqk/xxwcqkOnkclb.do";
 
     @Autowired
     HttpUtil httpUtil;
 
 
-    public JSONObject process(String JESSIONID) {
+    public JSONObject process2JSON(String JESSIONID) {
         try {
             String doc = httpUtil.apachehttpJWXTPage(url, JESSIONID);
             return parseHTML(doc);

@@ -15,9 +15,8 @@ import org.springframework.stereotype.Service;
  * helper for web html file : http://jwxt.sustc.edu.cn/jsxsd/kscj/cjcx_list
  */
 @Service
+@Deprecated
 public class ProcessHTML {
-    @Autowired
-    ProcessJID processJID;
 
     /**
      * This doc must be : http://jwxt.sustc.edu.cn/jsxsd/kscj/cjcx_list
