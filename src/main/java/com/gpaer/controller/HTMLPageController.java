@@ -34,13 +34,12 @@ public class HTMLPageController {
 
     @RequestMapping("/")
     public String toLoginPage(HttpServletRequest request) {
-        log(request);
+        log(request); // ?
         return "md_login";
     }
 
     @RequestMapping("/gpa")
     public String toGPAPage(HttpServletRequest request) {
-
         log(request);
         return "md_mygpa";
     }
