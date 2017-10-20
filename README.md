@@ -11,20 +11,24 @@ static/../vendors/ 目录下所有的第三方引用内容都尽可能提供和�
 3. 数据库：mySQL 5.6
 4. ORM：MyBatis
 
-## Update v3.0
-### 2017/10/20 
+### Update v3.0
+#### 2017/10/20 
 修复 CAS 升级后登录问题
+
 最新版本（v3.0）代码在 com.gpaer.service.v3 下面，旧版系统同步更新于 com.gpaer.service.v3_plain 下。
+
 注：CAS Https 模拟登录采用 Apache HttpClient 进行模拟客户端请求，并不再验证 ssl 证书。
 
-## Update v2.0
-### 2017/03/15
+### Update v2.0
+#### 2017/03/15
 升级版本，界面更新为 Material Design 风格
+
 提供分学期查询，并包含个人信息显示
 
-## Publish v1.0
-### 2017/01/21
+### Publish v1.0
+#### 2017/01/21
 发布第一版本，提供个人成绩查询、GPA 计算功能
+
 模拟 CAS 登录
 
 最新更新 2017/10/20 Thu
