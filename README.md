@@ -1,6 +1,8 @@
 # SUSTC_GPA
 南方科技大学 GPA 查询系统
 
+[![](https://travis-ci.org/Nexoi/SUSTC-GPA.svg?branch=master)](https://travis-ci.org/Nexoi/SUSTC-GPA)
+
 该系统只提供给南科大学生访问学期成绩并查询 GPA 所用，不做它途。任何人可下载源码进行修改、扩展功能，但作者不对任何修改版负责。本系统承诺除了基础的流量统计之外不获取任何私人信息（如：成绩），任何因利用该系统修改的功能来获取用户信息的行为所产生的后果不由作者负责。
 
 static/../vendors/ 目录下所有的第三方引用内容都尽可能提供和保留了官方版源代码及说明文档。
