@@ -17,7 +17,7 @@ import java.util.Date;
  * Created by neo on 21/01/2017.
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/1")
 public class QueryScoreController {
     Logger logger = Logger.getLogger(QueryScoreController.class);
 

@@ -43,6 +43,7 @@ function getCookie(c_name) {
 }
 
 function initialPageData(data) {
+    console.log(data);
     var info = data.info;
     var ing = data.ing;
     var ed = data.ed;
@@ -51,7 +52,7 @@ function initialPageData(data) {
     var zaixiudu = formTermZaiXiu(ing);
     var yixiudu = formTermYiXiuDu(ed);
     // document.getElementById("course__container").innerHTML = "" + zaixiudu + yixiudu;
-    $("#coursecontainer").html("" + zaixiudu + yixiudu);
+    $("#coursecontainer").html(zaixiudu || '' + yixiudu || '');
     //  计算总共修读的学分
     calInitialXffStatic(termNums);
     //  计算 GPA 分数
@@ -65,8 +66,15 @@ function initialPageData(data) {
  * 个人信息
  */
 function initPersonalInfo(info) {
-    document.getElementById("nickname").innerHTML = info.name;
-    document.getElementById("sid").innerHTML = info.sid;
+    if (info === undefined) {
+        var sid = getCookie('username');
+        info = {
+            name: sid,
+            sid: sid,
+        };
+    }
+    document.getElementById("nickname").innerHTML = info.name || '';
+    document.getElementById("sid").innerHTML = info.sid || '';
 }
 
 
@@ -74,6 +82,9 @@ function initPersonalInfo(info) {
  * 在修读课程
  */
 function formTermZaiXiu(ingi) {
+    if (ingi === undefined) {
+        return;
+    }
     var text = "<div class=\"row\"><div class=\"list-group list-group--block tasks-lists\">" +
         "<div class=\"list-group__header text-left\">" +
         "在修读课程" +
@@ -87,6 +98,9 @@ function formTermZaiXiu(ingi) {
 }
 
 function formListItemZaiXiu(data) {
+    if (data === undefined) {
+        return;
+    }
     var id = "zaixiudu_" + data.id;
     var varchar = data.courseid.toString().charAt(0);
     var color = getColor(varchar);
@@ -111,6 +125,9 @@ function formListItemZaiXiu(data) {
  * 已修读的成绩
  */
 function formTermYiXiuDu(ed) {
+    if (ed === undefined) {
+        return;
+    }
     var content = "";
     for (var i = 0; i < ed.length; i++) {
         var term = formTerm(ed[i], i, ed.length);
@@ -339,4 +356,16 @@ function calGPAPoint(score) {
     if (score >= 60) return 1.15;
     if (score >= 0) return 0;
     else return 0;
+}
+function getCookie(c_name) {
+    if(document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=")
+        if(c_start != -1) {
+            c_start = c_start + c_name.length + 1
+            c_end = document.cookie.indexOf(";", c_start)
+            if(c_end == -1) c_end = document.cookie.length
+            return unescape(document.cookie.substring(c_start, c_end))
+        }
+    }
+    return ""
 }
